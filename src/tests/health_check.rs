@@ -20,5 +20,5 @@ async fn health_check_works() {
 
 // Launch our application in the background ~somehow~
 async fn spawn_app() -> std::io::Result<()> {
-    rust_blog::run().await()
+    rust_blog::run().await
 }
