@@ -7,6 +7,13 @@ edition = "2021"
 [target.aarch64-apple-darwin]
 rustflags = ["-C", "link-arg=-fuse-ld=/usr/local/bin/zld"]
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path="src/main.rs"
+name="rust_blog"
+
 [dependencies]
 actix-web = "4.0.0"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
