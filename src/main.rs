@@ -1,9 +1,8 @@
 
 use rust_blog::run;
+// use actix_web::{web, App, HttpResponse, HttpServer, dev::Server};
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
-    // Bubble up the io::Error if we failed to bind the address
-    // Otherwise call .await on our Server
-    run().await
+    run().await?.await
 }
