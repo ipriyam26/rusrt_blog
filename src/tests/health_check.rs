@@ -1,7 +1,7 @@
 #[tokio::test]
 async fn health_check_works() {
     // Arrange
-    spawn_app().await.expect("Failed to spawn our app.");
+    spawn_app();
     // We need to bring in `reqwest` 
     // to perform HTTP requests against our application.
     let client = reqwest::Client::new();
@@ -20,5 +20,6 @@ async fn health_check_works() {
 
 // Launch our application in the background ~somehow~
 async fn spawn_app() -> std::io::Result<()> {
-    rust_blog::run().await
+let server = rust_blog::run().expect("Failed to bind address");
+let _ = tokio::spawn(server);
 }
